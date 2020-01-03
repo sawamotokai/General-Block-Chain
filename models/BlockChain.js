@@ -25,7 +25,7 @@ class BlockChain {
 		let nonce = 0;
 		let isValidNonce = false;
 		while (!isValidNonce) {
-			let hash = sha256((pow(nonce, 2) - pow(prev_nonce, 2)).toString());
+			let hash = sha256((Math.pow(nonce, 2) - Math.pow(prev_nonce, 2)).toString());
 			if (hash.slice(0, 4) === '0000')
 				isValidNonce = true; // mining successes if leading 4 digits are 0
 			else nonce++;
@@ -35,4 +35,4 @@ class BlockChain {
 }
 
 let BC = new BlockChain();
-console.log(BC.findNonce(31));
+console.log(BC.findNonce(3));
