@@ -7,11 +7,11 @@ class BlockChain {
 		this.create_block(1, '0');
 	}
 
-	create_block(nouce, prev_hash) {
+	create_block(nonce, prev_hash) {
 		let block = {
 			index: this.chain.length + 1,
 			timestamp: new Date().toISOString(),
-			nouce: nouce,
+			nonce: nonce,
 			prev_hash: prev_hash
 		};
 		this.chain.push(block);
@@ -71,5 +71,4 @@ class BlockChain {
 	}
 }
 
-let BC = new BlockChain();
-console.log(BC.findNonce(3));
+module.exports = BlockChain;
