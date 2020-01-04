@@ -23,6 +23,14 @@ app.get('/get_chain', (req, res) => {
 	res.status(200).json(response);
 });
 
+app.get('/is_valid_chain', (req, res) => {
+	let isValid = BC.isChainValid(BC.chain);
+	let respond = {
+		message: isValid ? 'Good. Blockchain is valid' : 'Bad. Blockchain is invalid'
+	};
+	return res.status(200).json(respond);
+});
+
 const port = 3000;
 app.listen(port, () => {
 	console.log(`Server started on ${port}`);
